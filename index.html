@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eizen & Bana-Lisa — Banana Love Story</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(#87ceeb 0%, #bde0ff 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Animated clouds */
+    .cloud {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      animation: moveClouds 60s linear infinite;
+      opacity: 0.9;
+    }
+    @keyframes moveClouds {
+      from { left: -200px; }
+      to { left: 110%; }
+    }
+
+    /* Banana trees */
+    .tree {
+      position: absolute;
+      bottom: 0;
+      width: 120px;
+      height: 160px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/Banana_tree_cartoon.png') no-repeat center/contain;
+      transform-origin: bottom center;
+      animation: sway 3s ease-in-out infinite alternate;
+    }
+    @keyframes sway {
+      0% { transform: rotate(-2deg); }
+      100% { transform: rotate(2deg); }
+    }
+
+    /* Scroll popup */
+    #scrollPopup {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 80%; max-width: 600px;
+      background: #fdf5d4;
+      border: 5px solid #c7a661;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      font-family: 'Georgia', serif;
+      color: #3b2f19;
+      transition: transform 0.5s ease;
+      z-index: 10;
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.2) 50%, transparent 50%), linear-gradient(rgba(255,255,255,0.15) 50%, transparent 50%);
+      background-size: 10px 10px;
+    }
+    #scrollPopup.open { transform: translate(-50%, -50%) scale(1); }
+
+    /* Center the button */
+    #scrollBtn {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #f8e49c;
+      border: 2px solid #bfa047;
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 5;
+    }
+
+    /* Effects */
+    .flag {
+      position: absolute;
+      width: 120px;
+      height: 80px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg') no-repeat center/contain;
+      animation: rise 2s ease-out forwards;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(-100px); }
+    }
+
+    .bubble {
+      position: absolute;
+      width: 20px; height: 20px;
+      background: rgba(0,255,0,0.5);
+      border-radius: 50%;
+      animation: floatUp 2s ease-out forwards;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-150px); opacity: 0; }
+    }
+
+    .splash {
+      position: absolute;
+      width: 80px; height: 80px;
+      background: red;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: splashAnim 1s ease-out forwards;
+    }
+    @keyframes splashAnim {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Clouds (More Clouds with Staggered Delays) -->
+  <div class="cloud" style="top:20px;width:180px;height:90px;animation-delay:0s;"></div>
+  <div class="cloud" style="top:60px;width:160px;height:70px;animation-delay:0s;"></div>
+  <div class="cloud" style="top:110px;width:220px;height:110px;animation-delay:0s;"></div>
+  <div class="cloud" style="top:150px;width:170px;height:75px;animation-delay:1s;"></div>
+  <div class="cloud" style="top:200px;width:260px;height:130px;animation-delay:2s;"></div>
+  <div class="cloud" style="top:250px;width:200px;height:90px;animation-delay:2s;"></div>
+  <div class="cloud" style="top:300px;width:140px;height:60px;animation-delay:3s;"></div>
+  <div class="cloud" style="top:350px;width:200px;height:100px;animation-delay:3s;"></div>
+  <div class="cloud" style="top:400px;width:160px;height:80px;animation-delay:4s;"></div>
+  <div class="cloud" style="top:450px;width:240px;height:120px;animation-delay:4s;"></div>
+
+  <!-- Scroll Button -->
+  <button id="scrollBtn">📜 Read the Story</button>
+
+  <!-- Scroll Popup -->
+  <div id="scrollPopup">
+    <h2 id="storyTitle" style="text-align:center;">Banana Apocalypse</h2>
+    <p>Once upon a time, there was a brilliant Bisaya scientist named <strong>Doc Symon</strong>. He built a sentient robot farmer called <strong>Eizen</strong>, who managed a vast vertical banana farm. Eizen, curious and caring, fell deeply in love with a beautiful banana tree named <strong>Bana-Lisa</strong>.</p>
+    <p>But when the nation’s leader, <strong>President Dwyth</strong>, declared that loving banana trees was unnatural, Eizen crafted a deepfake video of the president hugging a banana tree. Soon, the entire country began to adore their bananas passionately. People cuddled their banana trees day and night—until the trees started to rot.</p>
+    <p>Rot spread quickly, carrying a mysterious virus that turned humans into banana-loving zombies. As the world fell into chaos, Eizen kissed Bana-Lisa one last time, whispering, “Even in rot, there’s love.”</p>
+    <p><em>And that’s how the Banana Apocalypse began.</em></p>
+  </div>
+
+  <script>
+    const scrollBtn = document.getElementById('scrollBtn');
+    const scrollPopup = document.getElementById('scrollPopup');
+    const storyTitle = document.getElementById('storyTitle');
+
+    // Open the popup when the button is clicked
+    scrollBtn.addEventListener('click', () => {
+      scrollPopup.classList.toggle('open');
+    });
+
+    // Close the popup when clicking outside the scroll content
+    window.addEventListener('click', (e) => {
+      if (e.target === scrollPopup) {
+        scrollPopup.classList.remove('open');
+        storyTitle.textContent = "Banana Apocalypse"; // Change the title
+      }
+    });
+
+    // Prevent closing the popup if clicking inside the popup
+    scrollPopup.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  </script>
+</body>
+</html>
